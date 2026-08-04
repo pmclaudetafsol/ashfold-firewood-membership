@@ -1,0 +1,97 @@
+/**
+ * Brand design tokens.
+ *
+ * Values are stored as HSL triplets so Tailwind can apply opacity modifiers
+ * (e.g. `bg-primary/10`). The source hex for each token is noted alongside and
+ * every pairing is asserted in `src/styles/tokens.contrast.test.ts`.
+ *
+ * Light mode is the primary and only enabled experience for the Beta.
+ *
+ * ── Accessibility notes on the supplied palette ────────────────────────────
+ * Two brand colours cannot carry WCAG AA *normal text* in every direction.
+ * Both are kept at their exact specified hex for their intended use, with a
+ * darker companion shade added purely for text:
+ *
+ *   Warning  #A66A1F  white text on it = 4.47:1  (AA needs 4.50:1)
+ *            -> --warning stays exact; used for borders, icons, chart series
+ *               and large text. --warning-solid / --warning-text carry labels.
+ *
+ *   Accent   #C4512A  as text on cream = 4.09:1
+ *            -> --accent is a CTA *background* only (white on it = 4.61:1).
+ *               Text links use --primary. Never set text-accent on cream.
+ *
+ * See docs/DESIGN_SYSTEM.md for the full rationale.
+ */
+
+:root {
+  /* ── Core surfaces ─────────────────────────────────────────────────────── */
+  --background: 42 39% 94%; /* #F5F1E8 Warm Cream */
+  --foreground: 140 9% 13%; /* #1F2521 Warm Charcoal */
+
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 140 9% 13%; /* #1F2521 */
+
+  --popover: 0 0% 100%; /* #FFFFFF */
+  --popover-foreground: 140 9% 13%; /* #1F2521 */
+
+  /* ── Brand ─────────────────────────────────────────────────────────────── */
+  --primary: 155 45% 16%; /* #163A2B Deep Forest Green — 11.13:1 on cream */
+  --primary-foreground: 0 0% 100%; /* #FFFFFF — 12.54:1 on forest */
+  --primary-muted: 155 25% 90%; /* #DFECE7 tinted forest surface */
+
+  --secondary: 116 10% 69%; /* #A9B8A8 Soft Sage — surfaces only, not text */
+  --secondary-foreground: 140 9% 13%; /* #1F2521 — 7.52:1 on sage */
+
+  --accent: 15 65% 47%; /* #C4512A Burnt Orange — CTA background only */
+  --accent-foreground: 0 0% 100%; /* #FFFFFF — 4.61:1 on burnt orange */
+  --accent-hover: 15 66% 37%; /* #9E4020 — 6.55:1 with white */
+
+  --oak: 38 47% 60%; /* #C9A66B Natural Oak — surfaces only, not text */
+  --oak-foreground: 140 9% 13%; /* #1F2521 — 6.80:1 on oak */
+  --oak-muted: 38 47% 92%; /* #F4EDE1 oak tint for section backgrounds */
+
+  /* ── Neutrals ──────────────────────────────────────────────────────────── */
+  --muted: 40 24% 90%; /* #ECE8DF neutral fill */
+  --muted-foreground: 140 7% 36%; /* #55625A — 5.68:1 cream / 6.40:1 white */
+
+  --border: 40 21% 84%; /* #DED8CC Light Border — decorative dividers */
+  /* Interactive control boundaries need 3:1 per WCAG 1.4.11, which the
+     decorative border cannot reach (1.26:1 on cream). Inputs use this. */
+  --border-strong: 40 14% 49%; /* ~3.3:1 on cream, 3.7:1 on white */
+  --input: 40 14% 49%;
+
+  --ring: 15 65% 47%; /* #C4512A — focus ring matches the primary CTA */
+
+  /* ── Status ────────────────────────────────────────────────────────────── */
+  --success: 152 39% 30%; /* #2F6B4F — white on it 6.29:1 */
+  --success-foreground: 0 0% 100%;
+  --success-muted: 152 30% 92%; /* #E4F1EB */
+  --success-text: 152 39% 30%; /* 5.42:1 on success-muted */
+
+  --warning: 33 69% 39%; /* #A66A1F — exact brand hex, non-text uses */
+  --warning-foreground: 0 0% 100%;
+  --warning-muted: 36 60% 90%; /* #F5E9D6 */
+  --warning-solid: 33 69% 34%; /* #925D1B — white on it 5.52:1 */
+  --warning-text: 33 69% 33%; /* #8E5A1B — 4.80:1 on warning-muted */
+
+  --destructive: 0 51% 47%; /* #B33A3A — white on it 5.86:1 */
+  --destructive-foreground: 0 0% 100%;
+  --destructive-muted: 0 45% 94%; /* #F7E9E9 */
+  --destructive-text: 0 51% 47%; /* 4.96:1 on destructive-muted */
+
+  --information: 204 43% 34%; /* #315D7A — white on it 7.05:1 */
+  --information-foreground: 0 0% 100%;
+  --information-muted: 204 40% 93%; /* #E6EFF4 */
+  --information-text: 204 43% 34%; /* 6.05:1 on information-muted */
+
+  /* ── Shape ─────────────────────────────────────────────────────────────── */
+  --radius: 0.625rem; /* 10px — inside the 8–12px brand range */
+
+  /* ── Layout ────────────────────────────────────────────────────────────── */
+  --header-height: 4.5rem;
+  --admin-sidebar-width: 16rem;
+
+  /* Hero scrim: forest green at 60% over imagery gives white text 7.9:1 even
+     against a mid-grey photograph. Never reduce below 55%. */
+  --hero-scrim: 155 45% 16% / 0.62;
+}
